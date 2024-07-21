@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Details</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center mb-4">Appointment Details</h3>
+                        <p><strong>Doctor:</strong> <span id="doctorName"></span></p>
+                        <p><strong>Specialization:</strong> <span id="specialization"></span></p>
+                        <p><strong>Email:</strong> <span id="docemail"></span></p>
+                        <!-- Add more details about the doctor here -->
+                        <hr>
+                        <h4 class="card-title text-center mb-4">Appointment Form</h4>
+                        <form action="submit-appointment.php" method="post"> 
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                            </div> 
+            
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+            
+                            <div class="form-group"> 
+                                <label for="doctor">Doctor:</label>
+                                 <select class="form-control" id="doctor" name="doctor" required> 
+                                    <option value="">Select your doctor</option>
+                                     <option value="Dr. John Smith">Dr. John Smith</option> 
+                                     <option value="Dr. Emily Johnson"> Dr. Emily Johnson</option> 
+                                     <option value="Dr. Elon Musk"> Dr. Elon Musk</option> 
+                                 </select> 
+                            </div>
+                            <div class="form-group">
+                                <label for="docemail">doctoremail</label>
+                                <select class="form-control" id="docemail" name="docemail" required> 
+                                    <option value="">enter doctor Email</option>
+                                     <option value="manjunadth2003@gmail.com">manjunadth2003@gmail.com</option> 
+                                     <option value="varshithareddy186@gmail.com"> varshithareddy186@gmail.com</option> 
+                                 </select> 
+                            </div>
+                            <div class="form-group">
+                                <label for="medical_problem">medical problem</label>
+                                <input type="text" class="form-control" id="medical_problem" name="medical_problem" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointment_date">Appointment Date</label>
+                                <input type="date" class="form-control" id="appointment_date" name="appointment_date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointment_time">Appointment Time</label>
+                                <input type="time" class="form-control" id="appointment_time" name="appointment_time" required>
+                            </div> 
+                            
+    
+                            <button type="submit" class="btn btn-primary btn-block">Book Appointment</button>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div> 
+    
+    <script>
+        // Retrieve selected doctor and specialization from localStorage
+        var selectedDoctor = localStorage.getItem('selectedDoctor');
+        var selectedSpecialization = localStorage.getItem('selectedSpecialization');
+        var selecteddocEmail = localStorage.getItem('selecteddocEmail');
+        
+        // Display selected doctor details
+        document.getElementById('doctorName').innerText = selectedDoctor;
+        document.getElementById('specialization').innerText = selectedSpecialization;
+        document.getElementById('docemail').innerText = selecteddocEmail;
+
+        // Set hidden input values for doctor name and specialization
+        document.getElementById('doctorNameInput').value = selectedDoctor;
+        document.getElementById('specializationInput').value = selectedSpecialization;
+        document.getElementById('docemailInput').value = selecteddocEmail;
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        .doctor-card {
+            cursor: pointer;
+        }
+        .doctor-card:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        body {
+    padding-top: 80px; /* Adjust the value as needed */
+  }
+    </style>
+</head>
+<header class="header">
+
+    <a href="index.html" class="logo"> <i class="fas fa-heartbeat"></i> medcare. </a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#services">services</a>
+        <a href="#about">about</a>
+        <a href="medicine_guide-master/index.php">Pharmacy</a>
+        <!-- <a href="index.html">logout</a> -->
+
+    
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<body>
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center mb-5">Kindly Please Choose a Doctor</h1>
+        <div class="row">
+            <div class="col-md-4 mb-2">
+                <div class="card doctor-card" onclick="selectDoctor('Dr. John Smith','Cardiologist','varshithareddy186@gmail.com')">
+                    <div class="card-body text-center">
+                        <img src="doc-2.jpg" alt="">
+                        <h3></h3>
+                        <!-- <span>expert doctor</span> -->
+                        <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                        <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                        <h5 class="card-title">Dr. John Smith</h5>
+                        <p class="card-text">Cardiologist</p>
+                        <i class="fas fa-user-md fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card doctor-card" onclick="selectDoctor('Dr. Emily Johnson', 'Pediatrician', 'manjuandth2003@gmail.com')">
+                    <div class="card-body text-center">
+                        <img src="doc-1.jpg" alt="">
+                        <h3></h3>
+                        <!-- <span>expert doctor</span> -->
+                        <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                        <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                        <h5 class="card-title">Dr. Emily Johnson</h5>
+                        <p class="card-text">Gynecologist</p>
+                        <i class="fas fa-user-md fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-2">
+                <div class="card doctor-card" onclick="selectDoctor('Dr. Elon Musk','Cardiologist','varshithareddy186@gmail.com')">
+                    <div class="card-body text-center">
+                        <img src="doc-3.jpg" alt="">
+                        <h3></h3>
+                        <!-- <span>expert doctor</span> -->
+                        <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                        <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                        <h5 class="card-title">Dr.Elon Musk</h5>
+                        <p class="card-text">Cardiologist</p>
+                        <i class="fas fa-user-md fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more doctor cards here -->
+        </div>
+    </div>
+
+    <script>
+        function selectDoctor(name, specialization, docemail) {
+            localStorage.setItem('selectedDoctor', name);
+            localStorage.setItem('selectedSpecialization', specialization);
+            localStorage.setItem('selecteddocEmail', docemail);
+            window.location.href = 'doctor-details.html';
+        }
+    </script>
+</body>
+</html>

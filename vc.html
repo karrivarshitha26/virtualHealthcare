@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started Tutorial - Handling Events</title>
+  </head>
+  <body>
+    <div>
+        <button id="enableCamera">Enable Camera</button>
+        <button id="disableCamera">Disable Camera</button>
+
+        <button id="startRecording">Start Recording</button>
+        <button id="stopRecording">Stop Recording</button>
+
+        <input type="color" id="primaryColor" name="primaryColor" />
+    </div>
+
+    <script src="https://unpkg.com/@proficonf/iframe-api"></script>
+    <script>
+        const uiOptions = {
+            removeElements: [
+                'logo', 'meetingName', 'roomLocker', 'leaveButton',
+                'recordingControl', 'streamingControl'
+            ]
+        };
+
+        const api = new Proficonf({
+            meetingUrl: 'https://1ca93764bf2aab17770f-sandhyas-projects-149cc88f.vercel.app/9b394f9f-cc76-4a3e-b31a-6348157acab5',
+            user: {
+                name: 'Tester'
+            },
+            ui: uiOptions
+        });
+
+        api.on('participantRoleChanged', (event) => {
+            api.sendChatMessage(`${event.participant.name} is now a ${event.role}!`);
+        });
+
+        document.querySelector('#enableCamera').addEventListener('click', () => {
+            api.enableCamera()
+                .then(() => console.log('Everything OK!'))
+                .catch((error) => alert(`Camera error: ${error.message}`));
+        });
+
+        document.querySelector('#disableCamera').addEventListener('click', () => {
+            api.disableCamera();
+        });
+
+        document.querySelector('#startRecording').addEventListener('click', () => {
+            api.startRecording();
+        });
+
+        document.querySelector('#stopRecording').addEventListener('click', () => {
+            api.stopRecording();
+        });
+
+        document.querySelector('#primaryColor').addEventListener('change', (event) => {
+            uiOptions.customPrimaryColor = event.target.value;
+            api.updateUIConfig(uiOptions);
+        });
+
+        api.join();
+    </script>
+  </body>
+</html>
+
